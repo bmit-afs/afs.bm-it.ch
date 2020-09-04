@@ -1,74 +1,72 @@
 html {
-  box-sizing: border-box;
-
-  /* Set font size for easy rem calculations
+    box-sizing: border-box;
+    /* Set font size for easy rem calculations
    * default document font size = 16px, 1rem = 16px, 100% = 16px
    * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
   */
-  font-size: 62.5%;
-  scroll-behavior: smooth;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem; /* 18px */
-  font-weight: 400;
-  line-height: 1.4;
-  color: var(--main-white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* 18px */
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--main-white);
 }
 
 .container {
-	display: grid;
-	width: 100%;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-	grid-gap: 10px;
-  grid-template-areas:
-      "header header header header header"
-      "links links content content content"
-			"links links content content content"
-			"links links content content content"
-      "footer footer footer footer footer";	
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:    
+            "header header  header  header  header" 
+            "links  content content content content" 
+            "links  content content content content" 
+            "links  content content content content" 
+            "footer footer  footer  footer  footer";
 }
 
 .header {
-	grid-area: header;
-	width: 100%;
-	background: black;
-	color: white;
+    grid-area: header;
+    width: 100%;
+    background: black;
+    color: white;
 }
 
 
 .nav {
-	grid-area: links;
-	width: 30%;
-	border-right-style: solid;
-	border-color: black;
-	height: 100%;
+    grid-area: links;
+    width: 50%;
+    border-right-style: solid;
+    border-color: black;
+    height: 100%;
 }
 
 .nav-list {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 10px;
 }
 
 .main {
-	grid-area: content;
+    grid-area: content;
+    width: 100%;
+    text-align: center;
 }
 
-.story-time {
-	
-}
+
 
 .footer {
-	grid-area: footer;
-	width: 100%;
-	border-top-style: solid;
-	border-width: 100%;
+    grid-area: footer;
+    width: 100%;
+    border-top-style: solid;
+    border-width: 100%;
 }
 
 #the-end {
-	
 }
