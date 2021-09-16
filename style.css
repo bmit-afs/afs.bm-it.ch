@@ -1,0 +1,372 @@
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-yellow: #f1c917;
+  --main-blue: #1588e5;
+  --main-black: #000000;
+}
+
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+  }  
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+  
+    /* Set font size for easy rem calculations
+     * default document font size = 16px, 1rem = 16px, 100% = 16px
+     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+    html {
+      font-size: 60%;
+    }
+  }
+  
+  /* 980px / 16px = 61.25em */
+  @media (max-width: 61.25em) {
+    html {
+      font-size: 58%;
+    }
+  }
+  
+  /* 460px / 16px = 28.75em */
+  @media (max-width: 28.75em) {
+    html {
+      font-size: 55%;
+    }
+  }
+
+h1, h2, p, li {
+    padding: 1rem;
+}
+
+h1{
+    font-size: 4.5rem;
+}  
+
+h2 {
+    font-size: 4rem;
+}
+
+p {
+    font-size: 2.3rem;
+}
+a {
+  text-decoration: none;
+}
+body{
+    min-height: 100vh;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 8.3vw);
+    grid-template-rows: 6vh 6vh repeat(4, 15.1vh) 15.4vh repeat(3, 15.1vh) 15.1vh 6.2vh;
+}
+
+.header {
+    display: flex;
+    justify-content:flex-start;
+    align-items: stretch;
+    height: 12vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: var(--main-yellow);
+    border-bottom: 0.2rem solid var(--main-black);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 140%;
+}
+
+
+nav {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: 0 1rem;
+
+}
+
+nav a {
+    display: block;
+    font-size: 2.6rem;
+    padding: 2rem;
+    color: black;
+}
+
+
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+} 
+
+nav a:hover {
+  color: ivory;
+}
+
+@media (max-width: 28.75em) {
+  .header {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+
+/* Inhalt der Seite */
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(12, 8.3vw);
+    grid-template-rows: 6vh 6vh repeat(4, 15.1vh) 15.4vh repeat(3, 15.1vh) 15.2vh 6.2vh;
+    height:146.6vh;
+}
+
+main {
+    width: 100%;
+    grid-area: 3/1/12/13;
+}
+
+section {
+    text-justify:distribute;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.section1 {
+  color: var(--main-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 63%;
+  background-color: var(--main-black);
+  padding: 5vh 3vw 2vh 3vw;
+}
+
+.section-title1 {
+  border-bottom: 0.2rem solid var(--main-yellow);
+  margin-bottom: 2rem;
+}
+
+.section2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--main-yellow);
+    border: 0.5rem solid var(--main-black);
+    align-items: center;
+    height: 66%;
+    padding: 5vh 3vw 5vh 3vw;
+}
+
+/*aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:lightsteelblue;
+    font-size: 8.3vw;
+}
+
+aside ul {
+    width: 100%;
+    height: 100%;
+    font-size: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}*/
+
+/* Projekte Galerie */
+#projects-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section-header {
+  max-width: 670px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 2.3rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  #projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-black);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.code {
+  color: var(--main-black);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: orange;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  color: var(--main-white);
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.project-title:hover {
+  color: var(--main-blue);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  color: var(--main-white);
+  font-size: 2rem;
+  background: var(--main-black);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  color: #000000;
+  background: var(--main-yellow);
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+
+
+.footer {
+    grid-area:12/1/13/13;    
+}
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--main-yellow);
+    height: 5vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 0.2rem solid var(--main-black);
+    position: fixed;
+}
+
+footer ul {
+    font-size: 2.6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50vw;
+    list-style: none;
+}
+
+footer > p {
+    margin: 2rem;
+  }
+  
+  footer i {
+    vertical-align: middle;
+  }
+  
+  @media (max-width: 28.75em) {
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
